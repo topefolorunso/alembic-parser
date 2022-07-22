@@ -1,5 +1,5 @@
 to run the package:
- - replace <path to root folder> below as approriate
+ - replace `<path to root folder>` below as approriate
  - run the command below in terminal
 
 ```
