@@ -1,4 +1,3 @@
-from sys import exec_prefix
 import time
 
 
