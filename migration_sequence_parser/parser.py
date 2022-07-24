@@ -45,5 +45,7 @@ if __name__ == "__main__":
     # run_execution(head, executed_nodes)
     try:
         run_execution(head, executed_nodes)
+    except NameError:
+        pass
     except:
         commence_roll_back()
