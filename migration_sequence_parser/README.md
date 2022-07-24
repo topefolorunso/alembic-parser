@@ -27,7 +27,7 @@ This application parses a migration package, determines the migration sequence (
 # Assumptions
 - The migration package contains at least 1 migration script
 - All migration scripts exist in one parent directory, no sub-directories
-- All migration scripts are valid migration scripts i.e they contain a valid revision and a valid down_revision parameters
+- All migration scripts are valid migration scripts i.e they contain valid revision and down_revision parameters
 - Only one migration sequence exists in a given package
 - No migration script has more than one downstream file
 - All package dependencies are included in the requirements.txt file and are pip installed properly
