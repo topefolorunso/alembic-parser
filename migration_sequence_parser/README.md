@@ -1,13 +1,31 @@
 # How to run
 
-1. Generate dependency file with pipreqs:
-    ```pip install pipreqs```
-    ```cd <path to parser directory>```
-    ```pipreqs <path to base migration folder> --savepath requirements.txt```
-2. Install dependencies with 
-    `pip install -r requirements.txt`
-3. Execute sample migration
-    `py parser.py`
+1. Generate dependency file using pipreqs package:
+    - install pipreqs
+    ```
+    pip install pipreqs
+    ```
+
+    - navigate to the parser directory
+    ```
+    cd <path to parser directory>
+    ```
+
+    - generate dependency file
+    ```
+    pipreqs <path to base migration folder> --savepath requirements.txt
+    ```
+
+2. Install dependencies with:
+    ```
+    pip install -r requirements.txt
+    ```
+
+3. Execute sample migration:
+    ```
+    py parser.py
+    ```
+    
 4. Execute migration in a different directory
     ```
     base_dir="<path to base migration folder>" \
