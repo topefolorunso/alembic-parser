@@ -1,4 +1,5 @@
 import os
+import time
 from helper import *
 from execute_migrations import *
 
@@ -20,14 +21,29 @@ def generate_migration_sequence(head):
     print(migration_sequence)
     print("**************************************************************************************")
 
+def run_execution(head, executed_nodes):
+    if confirm_execution():
+        execute(head, executed_nodes)
+    else:
+        print("sequence execution suppressed...")
+
+def commence_roll_back():
+    file_name = str(sys.exc_info()[1])
+    print("**************************************************************************************")
+    print(f"Problem with migration file {file_name}...\ncommencing roll back actions...")
+    time.sleep(3)
+    print("**************************************************************************************")
+    roll_back(executed_nodes)
+
 if __name__ == "__main__":
     base_dir = os.getenv('base_dir', r".\migration_data_test")
     nodes = get_migration_node(base_dir)
     head = get_first_migration_script(nodes)
     generate_migration_sequence(head)
 
-    if confirm_execution():
-        execute(head)
-    else:
-        print("sequence execution suppressed...")
-    
+    executed_nodes = []
+    # run_execution(head, executed_nodes)
+    try:
+        run_execution(head, executed_nodes)
+    except:
+        commence_roll_back()
