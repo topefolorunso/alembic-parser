@@ -113,7 +113,7 @@ This application parses a migration package, determines the migration sequence (
         base_dir=".\tests\test_multiple_heads" \
         py parser.py
         
-### Expected Output:
+### Expected Output (disallowing multiple heads):
 
     <truncated log message>
 
@@ -124,6 +124,24 @@ This application parses a migration package, determines the migration sequence (
             1de5a8c20056_initial_migration_include.py
             2de5a8c20056_test_multiple_heads.py
             **************************************************************************************
+
+### Expected Output (allowing multiple heads):
+
+    <truncated log message>
+    generating migration sequence 1...
+    **************************************************************************************
+    Migration files would be applied in below sequence
+
+    1de5a8c20056(1de5a8c20056_initial_migration_include.py)
+    **************************************************************************************
+    generating migration sequence 2...
+    **************************************************************************************
+    Migration files would be applied in below sequence
+
+    2de5a8c20056(2de5a8c20056_test_multiple_heads.py)
+    **************************************************************************************
+    <truncated log message>
+
 
 ## 7.  No head exists in migration package
         base_dir=".\tests\test_no_head" \

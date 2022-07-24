@@ -61,7 +61,12 @@ def get_head_nodes(nodes):
     return head_nodes
 
 def validate_head(heads):
+    if len(heads) == 0:
+        raise Exception("Unable to link nodes, cannot determine first migration file")
     if len(heads) > 1:
+        user_input = input("Multiple heads exist in package, do you want to proceed?\n(Y/n): ")
+        if user_input.lower() == "y":
+            return
         head_files = ""
         for head in heads:
             head_files = head_files + "\n        " + head.file_name
@@ -93,14 +98,7 @@ def link_nodes(nodes):
     print('determining first migration file...')
     validate_head(heads)
 
-    head = None
-    try:
-        head = heads[0]
-    except IndexError:
-        sys.tracebacklimit = 0
-        raise Exception("Unable to link nodes, cannot determine first migration file")
-
-    return head
+    return heads
 
 def validate_nodes(nodes):
     invalid_nodes = []
