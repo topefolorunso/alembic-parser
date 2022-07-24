@@ -1,6 +1,6 @@
 # Description
 
-This application parses a migration package, determines the migration sequence (if it exists), and executes the migration according to the determined sequence
+This application parses a migration package, determines the migration sequence (if it exists), and executes the migration according to the determined sequence.
 
 
 # How to run
