@@ -45,7 +45,7 @@ This application parses a migration package, determines the migration sequence (
     Migration successfully completed
 
 ## 2.  Invalid revision files
-        base_dir=".\test\test_invalid_revision_files" \
+        base_dir=".\tests\test_invalid_revision_files" \
         py parser.py
 
 ### Expected Output:
@@ -54,7 +54,7 @@ This application parses a migration package, determines the migration sequence (
     Unable to link nodes, cannot determine first migration file
 
 ## 3.  Missing down revision files
-        base_dir=".\test\test_missing_down_revision" \
+        base_dir=".\tests\test_missing_down_revision" \
         py parser.py
 
 ### Expected Output:
@@ -63,7 +63,7 @@ This application parses a migration package, determines the migration sequence (
     Unable to link nodes, cannot determine first migration file
 
 ## 4.  Missing module in migration script
-        base_dir=".\test\test_missing_module" \
+        base_dir=".\tests\test_missing_module" \
         py parser.py
 
 ### Expected Output:
@@ -72,7 +72,7 @@ This application parses a migration package, determines the migration sequence (
     Ensure 'missing_module' module is present in requirements.txt and installed properly
 
 ## 5.  Multiple downstream files
-        base_dir=".\test\test_multiple_downstreams" \
+        base_dir=".\tests\test_multiple_downstreams" \
         py parser.py
         
 ### Expected Output:
@@ -87,7 +87,7 @@ This application parses a migration package, determines the migration sequence (
             **************************************************************************************
 
 ## 6.  Multiple files with no down revisions
-        base_dir=".\test\test_multiple_heads" \
+        base_dir=".\tests\test_multiple_heads" \
         py parser.py
         
 ### Expected Output:
@@ -101,7 +101,7 @@ This application parses a migration package, determines the migration sequence (
         **************************************************************************************
 
 ## 7.  No head exists in migration package
-        base_dir=".\test\test_no_head" \
+        base_dir=".\tests\test_no_head" \
         py parser.py
         
 ### Expected Output:
@@ -115,7 +115,7 @@ This application parses a migration package, determines the migration sequence (
     Exception: Unable to link nodes, cannot determine first migration file
 
 ## 8.  Error during migration (test roll back)
-        base_dir=".\test\test_roll_back" \
+        base_dir=".\tests\test_roll_back" \
         py parser.py
         
 ### Expected Output:
