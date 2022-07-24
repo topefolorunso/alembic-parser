@@ -6,31 +6,22 @@ This application parses a migration package, determines the migration sequence (
 # How to run
 
 ## 1. Generate dependency file using pipreqs package:
-    - install pipreqs
-    ```
-    pip install pipreqs
-    ```
-    - generate dependency file
-    ```
-    cd <path to parser directory>
-    pipreqs <path to base migration directory> --savepath requirements.txt
-    ```
+
+### install pipreqs
+        pip install pipreqs
+
+### generate dependency file
+        pipreqs <path to base migration directory> --savepath requirements.txt
 
 ## 2. Install dependencies with:
-    ```
-    pip install -r requirements.txt
-    ```
+        pip install -r requirements.txt
 
 ## 3. Execute sample migration:
-    ```
-    py parser.py
-    ```
-    
+        py parser.py
+
 ## 4. Execute migration in a different directory
-    ```
-    base_dir="<path to base migration directory>" \
-    py parser.py
-    ```
+        base_dir="<path to base migration directory>" \
+        py parser.py
 
 
 # Assumptions
@@ -41,10 +32,9 @@ This application parses a migration package, determines the migration sequence (
 # Test Cases
 
 ## 1.  Ideal
-    ```
-    py parser.py
-    ```
-    Expected Output:
+        py parser.py
+        
+### Expected Output:
 
     **************************************************************************************
     Migration files would be applied in below sequence
@@ -55,45 +45,37 @@ This application parses a migration package, determines the migration sequence (
     Migration successfully completed
 
 ## 2.  Invalid revision files
-    ```
-    base_dir=".\test_invalid_revision_files" \
-    py parser.py
-    ```
+        base_dir=".\test\test_invalid_revision_files" \
+        py parser.py
 
-    Expected Output:
+### Expected Output:
 
     Cannot determine position of the following files
     Unable to link nodes, cannot determine first migration file
 
 ## 3.  Missing down revision files
-    ```
-    base_dir=".\test_missing_down_revision" \
-    py parser.py
-    ```
+        base_dir=".\test\test_missing_down_revision" \
+        py parser.py
 
-    Expected Output:
+### Expected Output:
 
     Cannot determine position of the following files
     Unable to link nodes, cannot determine first migration file
 
 ## 4.  Missing module in migration script
-    ```
-    base_dir=".\test_missing_module" \
-    py parser.py
-    ```
+        base_dir=".\test\test_missing_module" \
+        py parser.py
 
-    Expected Output:
+### Expected Output:
 
     Exception: No module named 'missing_module'
     Ensure 'missing_module' module is present in requirements.txt and installed properly
 
 ## 5.  Multiple downstream files
-    ```
-    base_dir=".\test_multiple_downstreams" \
-    py parser.py
-    ```
-
-    Expected Output:
+        base_dir=".\test\test_multiple_downstreams" \
+        py parser.py
+        
+### Expected Output:
 
     Exception: 6dd757e58240_user_group_migrations_addition_include.py has more than 1 downstream files...
 
@@ -105,11 +87,10 @@ This application parses a migration package, determines the migration sequence (
             **************************************************************************************
 
 ## 6.  Multiple files with no down revisions
-    ```
-    base_dir=".\test_multiple_heads" \
-    py parser.py
-    ```
-    Expected Output:
+        base_dir=".\test\test_multiple_heads" \
+        py parser.py
+        
+### Expected Output:
 
     Exception: Cannot determine first migration script...
 
@@ -120,11 +101,10 @@ This application parses a migration package, determines the migration sequence (
         **************************************************************************************
 
 ## 7.  No head exists in migration package
-    ```
-    base_dir=".\test_no_head" \
-    py parser.py
-    ```
-    Expected Output:
+        base_dir=".\test\test_no_head" \
+        py parser.py
+        
+### Expected Output:
 
     Cannot determine position of the following files
     **************************************************************************************
@@ -135,7 +115,7 @@ This application parses a migration package, determines the migration sequence (
     Exception: Unable to link nodes, cannot determine first migration file
 
 ## 8.  Error during migration (test roll back)
-    ```
-    base_dir=".\test_roll_back" \
-    py parser.py
-    ```
+        base_dir=".\test\test_roll_back" \
+        py parser.py
+        
+### Expected Output:
