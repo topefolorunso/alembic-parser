@@ -1,6 +1,5 @@
 import time
 
-
 def execute(node, executed_nodes):
     print (f"executing migration file {node.file_name}")
     executed_nodes.append(node)

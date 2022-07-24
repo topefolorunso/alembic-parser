@@ -23,14 +23,14 @@ def get_revision_id(file_name, module):
     try:
         return module.revision
     except AttributeError:
-        # print(f'{file_name} is not a valid migration file')
+        print(f'{file_name} is not a valid migration file')
         return "Not a revision file"
 
 def get_down_revision(file_name, module):
     try:
         return module.down_revision
     except AttributeError:
-        # print(f'Cannot determine position of {file_name}')
+        print(f'Cannot determine position of {file_name}')
         return "Cannot find down_revision"
 
 def get_files_from_folder(path_to_folder):

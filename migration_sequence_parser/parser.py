@@ -41,7 +41,6 @@ if __name__ == "__main__":
     generate_migration_sequence(head)
 
     executed_nodes = []
-    # run_execution(head, executed_nodes)
     try:
         run_execution(head, executed_nodes)
     except NameError:
