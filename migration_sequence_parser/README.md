@@ -33,6 +33,6 @@
     ```
 
 # Assumptions
-- all migration scripts exist in one parent directory, no sub-directories
-- no migration script has more than one downstream file
-- only one sequence exists in a given package
+- All migration scripts exist in one parent directory, no sub-directories
+- No migration script has more than one downstream file
+- Only one migration sequence exists in a given package
