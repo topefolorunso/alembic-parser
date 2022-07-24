@@ -27,10 +27,9 @@ def run_execution(head, executed_nodes):
     else:
         print("sequence execution suppressed...")
 
-def commence_roll_back():
-    file_name = str(sys.exc_info()[1])
+def commence_roll_back(message):
     print("**************************************************************************************")
-    print(f"Problem with migration file {file_name}...\ncommencing roll back actions...")
+    print(message)
     time.sleep(3)
     print("**************************************************************************************")
     roll_back(executed_nodes)
@@ -47,5 +46,10 @@ if __name__ == "__main__":
         run_execution(head, executed_nodes)
     except NameError:
         pass
+    except KeyboardInterrupt:
+        message = "Keyboard interrupt...\ncommencing roll back actions..."
+        commence_roll_back(message)
     except:
-        commence_roll_back()
+        file_name = str(sys.exc_info()[1])
+        message = f"Problem with migration file {file_name}...\ncommencing roll back actions..."
+        commence_roll_back(message)
