@@ -36,7 +36,7 @@ def commence_roll_back():
     roll_back(executed_nodes)
 
 if __name__ == "__main__":
-    base_dir = os.getenv('base_dir', r".\migration_data_test")
+    base_dir = os.getenv('base_dir', r".\tests\migration_data_test")
     nodes = get_migration_node(base_dir)
     head = get_first_migration_script(nodes)
     generate_migration_sequence(head)
