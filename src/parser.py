@@ -34,7 +34,7 @@ def commence_roll_back(message):
     roll_back(executed_nodes)
 
 if __name__ == "__main__":
-    base_dir = os.getenv('base_dir', r".\tests\migration_data_test")
+    base_dir = os.getenv('base_dir', r"..\test_data\migration_data_test")
     nodes = get_migration_node(base_dir)
     heads = get_first_migration_scripts(nodes)
     n=1
